@@ -1,0 +1,327 @@
+Version: 2.0
+
+#########################
+# Alternatives Section
+#
+
+Alternatives: &alternatives
+# Here, we list all the alternatives, together with their attributes. 
+# We can use these attributes later in the file when defining 
+# preferenceFunctions. The attributes can be quantitative or 
+# qualitative.
+  DACIA_LODGY:
+    PRICE_WITH_GOV_SUPPORT: 2199500
+    HP: 130
+    ENGINE: 1.33
+    CONSUMPTION_L_PER_KM: 5.35
+    TRUNK_CAPACITY_IN_L: 207
+    LENGTH: 4.49
+    SPEED_GEAR_TYPE: 6
+    DIESEL: no
+    NUMBER_OF_SEATS: 7
+  FIAT_500L_WAGON:
+    PRICE_WITH_GOV_SUPPORT: 3499000
+    HP: 120
+    ENGINE: 1.30
+    CONSUMPTION_L_PER_KM: 4.10
+    TRUNK_CAPACITY_IN_L: 183
+    LENGTH: 4.37
+    SPEED_GEAR_TYPE: 5
+    DIESEL: yes
+    NUMBER_OF_SEATS: 7
+  OPEL_COMBO_LIFE:
+    PRICE_WITH_GOV_SUPPORT: 3550000
+    HP: 100
+    ENGINE: 1.20
+    CONSUMPTION_L_PER_KM: 7.10
+    TRUNK_CAPACITY_IN_L: 597
+    LENGTH: 4.40
+    SPEED_GEAR_TYPE: 6
+    DIESEL: yes
+    NUMBER_OF_SEATS: 7
+  RENAULT_ESPACE:
+    PRICE_WITH_GOV_SUPPORT: 8296520
+    HP: 225
+    ENGINE: 1.60
+    CONSUMPTION_L_PER_KM: 6.50
+    TRUNK_CAPACITY_IN_L: 247
+    LENGTH: 4.85
+    SPEED_GEAR_TYPE: 6
+    DIESEL: yes
+    NUMBER_OF_SEATS: 7
+  RENAULT_GRAND_SCENIC:
+    PRICE_WITH_GOV_SUPPORT: 3999000
+    HP: 160
+    ENGINE: 1.30
+    CONSUMPTION_L_PER_KM: 9.2
+    TRUNK_CAPACITY_IN_L: 233
+    LENGTH: 4.63
+    SPEED_GEAR_TYPE: 6
+    DIESEL: yes
+    NUMBER_OF_SEATS: 7
+  RENAULT_TRAFIC_COMBI:
+    PRICE_WITH_GOV_SUPPORT: 5506520
+    HP: 120
+    ENGINE: 1.99
+    CONSUMPTION_L_PER_KM: 7.7
+    TRUNK_CAPACITY_IN_L: 1000
+    LENGTH: 4.99
+    SPEED_GEAR_TYPE: 6
+    DIESEL: yes
+    NUMBER_OF_SEATS: 9
+  SKODA_KODIAQ:
+    PRICE_WITH_GOV_SUPPORT: 5920000
+    HP: 150
+    ENGINE: 1.96
+    CONSUMPTION_L_PER_KM: 6.9
+    TRUNK_CAPACITY_IN_L: 270
+    LENGTH: 4.70
+    SPEED_GEAR_TYPE: 7
+    DIESEL: no
+    NUMBER_OF_SEATS: 7
+  TOYOTA_LAND_CRUISER:
+    PRICE_WITH_GOV_SUPPORT: 12560000
+    HP: 177
+    ENGINE: 2.88
+    CONSUMPTION_L_PER_KM: 9.6
+    TRUNK_CAPACITY_IN_L: 120
+    LENGTH: 2.25
+    SPEED_GEAR_TYPE: 0
+    DIESEL: yes
+    NUMBER_OF_SEATS: 7   
+  TOYOTA_PRIUS_PLUS:
+    PRICE_WITH_GOV_SUPPORT: 7925000
+    HP: 142
+    ENGINE: 1.79
+    CONSUMPTION_L_PER_KM: 4.1
+    TRUNK_CAPACITY_IN_L: 375
+    LENGTH: 4.6
+    SPEED_GEAR_TYPE: 0
+    DIESEL: yes
+    NUMBER_OF_SEATS: 7  
+  TOYOTA_PROACE_VERSO:
+    PRICE_WITH_GOV_SUPPORT: 7563000
+    HP: 150
+    ENGINE: 2.00
+    CONSUMPTION_L_PER_KM: 7.4
+    TRUNK_CAPACITY_IN_L: 1600
+    LENGTH: 4.95
+    SPEED_GEAR_TYPE: 0
+    DIESEL: no
+    NUMBER_OF_SEATS: 9 
+  TOYOTA_PROACE_CITY_VERSO:
+    PRICE_WITH_GOV_SUPPORT: 4870000
+    HP: 110
+    ENGINE: 1.2
+    CONSUMPTION_L_PER_KM: 5.6
+    TRUNK_CAPACITY_IN_L: 571
+    LENGTH: 4.75
+    SPEED_GEAR_TYPE: 5
+    DIESEL: yes
+    NUMBER_OF_SEATS: 7 
+#
+# End of Alternatives Section
+#####################################
+
+#####################################
+# Goal Section
+#
+
+
+Goal:
+# The goal spans a tree of criteria and the alternatives
+  name: cardataahp_v3
+  description: >
+    This is a classic single decision maker problem. It models
+    the situation facing by a family that wants to buy a new car.
+  author: unknown
+  preferences:
+    pairwise:
+      - [PRICE_WITH_GOV_SUPPORT, HP, 9]
+      - [PRICE_WITH_GOV_SUPPORT, ENGINE, 5]
+      - [PRICE_WITH_GOV_SUPPORT, CONSUMPTION_L_PER_KM, 3]
+      - [PRICE_WITH_GOV_SUPPORT, TRUNK_CAPACITY_IN_L, 5]
+      - [PRICE_WITH_GOV_SUPPORT, LENGTH, 9]
+      - [PRICE_WITH_GOV_SUPPORT, SPEED_GEAR_TYPE, 3]
+      - [PRICE_WITH_GOV_SUPPORT, DIESEL, 3]
+      - [PRICE_WITH_GOV_SUPPORT, NUMBER_OF_SEATS, 1/3]
+      - [HP, ENGINE, 1/3]
+      - [HP, CONSUMPTION_L_PER_KM, 1/3]
+      - [HP, TRUNK_CAPACITY_IN_L, 1/5]
+      - [HP, LENGTH, 7]
+      - [HP, SPEED_GEAR_TYPE, 5]
+      - [HP, DIESEL, 5]
+      - [HP, NUMBER_OF_SEATS, 1/3] 
+      - [CONSUMPTION_L_PER_KM, TRUNK_CAPACITY_IN_L, 5]
+      - [CONSUMPTION_L_PER_KM, LENGTH, 9]
+      - [CONSUMPTION_L_PER_KM, SPEED_GEAR_TYPE, 7]
+      - [CONSUMPTION_L_PER_KM, DIESEL, 5]
+      - [CONSUMPTION_L_PER_KM, NUMBER_OF_SEATS, 3]   
+      - [TRUNK_CAPACITY_IN_L, LENGTH, 9]
+      - [TRUNK_CAPACITY_IN_L, SPEED_GEAR_TYPE, 7]
+      - [TRUNK_CAPACITY_IN_L, DIESEL, 5]
+      - [TRUNK_CAPACITY_IN_L, NUMBER_OF_SEATS, 3] 
+      - [LENGTH, SPEED_GEAR_TYPE, 1/7]
+      - [LENGTH, DIESEL, 1/3]
+      - [LENGTH, NUMBER_OF_SEATS, 1/9]     
+      - [SPEED_GEAR_TYPE, DIESEL, 3]
+      - [SPEED_GEAR_TYPE, NUMBER_OF_SEATS, 1/9] 
+      - [DIESEL, NUMBER_OF_SEATS, 1/9]       
+  children: 
+    PRICE_WITH_GOV_SUPPORT:
+      preferences: 
+        pairwiseFunction:
+          function(a1, a2) min(9, max(1/9, a1$PRICE_WITH_GOV_SUPPORT/a2$PRICE_WITH_GOV_SUPPORT))
+      children: *alternatives 
+    HP:
+      preferences: 
+        pairwiseFunction:
+          function(a1, a2) min(5, max(1/5, a1$HP/a2$HP))
+      children: *alternatives
+    ENGINE:
+      preferences: 
+        pairwiseFunction:
+          function(a1, a2) min(5, max(1/5, a1$ENGINE/a2$ENGINE))
+      children: *alternatives
+    CONSUMPTION_L_PER_KM:
+      preferences: 
+        pairwiseFunction:
+          function(a1, a2) min(3, max(1/3, a1$CONSUMPTION_L_PER_KM/a2$CONSUMPTION_L_PER_KM))
+      children: *alternatives      
+    TRUNK_CAPACITY_IN_L:
+      preferences: 
+        pairwiseFunction:
+          function(a1, a2) min(9, max(1/9, a1$TRUNK_CAPACITY_IN_L/a2$TRUNK_CAPACITY_IN_L))
+      children: *alternatives
+    LENGTH:
+      preferences: 
+        pairwiseFunction:
+          function(a1, a2) min(3, max(1/3, a1$LENGTH/a2$LENGTH))
+      children: *alternatives
+    SPEED_GEAR_TYPE:
+      preferences: 
+        pairwise:
+          - [DACIA_LODGY, FIAT_500L_WAGON, 5]
+          - [DACIA_LODGY, OPEL_COMBO_LIFE, 3]
+          - [DACIA_LODGY, RENAULT_ESPACE, 3]
+          - [DACIA_LODGY, RENAULT_GRAND_SCENIC, 3]
+          - [DACIA_LODGY, RENAULT_TRAFIC_COMBI, 3]
+          - [DACIA_LODGY, SKODA_KODIAQ, 1/3]
+          - [DACIA_LODGY, TOYOTA_LAND_CRUISER, 1/7]
+          - [DACIA_LODGY, TOYOTA_PRIUS_PLUS, 1/7]
+          - [DACIA_LODGY, TOYOTA_PROACE_VERSO, 1/7]
+          - [DACIA_LODGY, TOYOTA_PROACE_CITY_VERSO, 5]
+          - [FIAT_500L_WAGON, OPEL_COMBO_LIFE, 1/5]
+          - [FIAT_500L_WAGON, RENAULT_ESPACE, 3]
+          - [FIAT_500L_WAGON, RENAULT_GRAND_SCENIC, 3]
+          - [FIAT_500L_WAGON, RENAULT_TRAFIC_COMBI, 3]
+          - [FIAT_500L_WAGON, SKODA_KODIAQ, 1/7]
+          - [FIAT_500L_WAGON, TOYOTA_LAND_CRUISER, 3]
+          - [FIAT_500L_WAGON, TOYOTA_PRIUS_PLUS, 3]
+          - [FIAT_500L_WAGON, TOYOTA_PROACE_VERSO, 3]
+          - [FIAT_500L_WAGON, TOYOTA_PROACE_CITY_VERSO, 5]
+          - [OPEL_COMBO_LIFE, RENAULT_ESPACE, 3]
+          - [OPEL_COMBO_LIFE, RENAULT_GRAND_SCENIC, 3]
+          - [OPEL_COMBO_LIFE, RENAULT_TRAFIC_COMBI, 3]
+          - [OPEL_COMBO_LIFE, SKODA_KODIAQ, 3]
+          - [OPEL_COMBO_LIFE, TOYOTA_LAND_CRUISER, 3]
+          - [OPEL_COMBO_LIFE, TOYOTA_PRIUS_PLUS, 3]
+          - [OPEL_COMBO_LIFE, TOYOTA_PROACE_VERSO, 3]
+          - [OPEL_COMBO_LIFE, TOYOTA_PROACE_CITY_VERSO, 5]
+          - [RENAULT_ESPACE, RENAULT_GRAND_SCENIC, 3]
+          - [RENAULT_ESPACE, RENAULT_TRAFIC_COMBI, 3]
+          - [RENAULT_ESPACE, SKODA_KODIAQ, 3]
+          - [RENAULT_ESPACE, TOYOTA_LAND_CRUISER, 3]
+          - [RENAULT_ESPACE, TOYOTA_PRIUS_PLUS, 3]
+          - [RENAULT_ESPACE, TOYOTA_PROACE_VERSO, 3]
+          - [RENAULT_ESPACE, TOYOTA_PROACE_CITY_VERSO, 5]  
+          - [RENAULT_GRAND_SCENIC, RENAULT_TRAFIC_COMBI, 3]
+          - [RENAULT_GRAND_SCENIC, SKODA_KODIAQ, 3]
+          - [RENAULT_GRAND_SCENIC, TOYOTA_LAND_CRUISER, 3]
+          - [RENAULT_GRAND_SCENIC, TOYOTA_PRIUS_PLUS, 3]
+          - [RENAULT_GRAND_SCENIC, TOYOTA_PROACE_VERSO, 3]
+          - [RENAULT_GRAND_SCENIC, TOYOTA_PROACE_CITY_VERSO, 5]
+          - [RENAULT_TRAFIC_COMBI, SKODA_KODIAQ, 5]
+          - [RENAULT_TRAFIC_COMBI, TOYOTA_LAND_CRUISER, 5]
+          - [RENAULT_TRAFIC_COMBI, TOYOTA_PRIUS_PLUS, 5]
+          - [RENAULT_TRAFIC_COMBI, TOYOTA_PROACE_VERSO, 3]
+          - [RENAULT_TRAFIC_COMBI, TOYOTA_PROACE_CITY_VERSO, 5] 
+          - [SKODA_KODIAQ, TOYOTA_LAND_CRUISER, 3]
+          - [SKODA_KODIAQ, TOYOTA_PRIUS_PLUS, 3]
+          - [SKODA_KODIAQ, TOYOTA_PROACE_VERSO, 3]
+          - [SKODA_KODIAQ, TOYOTA_PROACE_CITY_VERSO, 5]
+          - [TOYOTA_LAND_CRUISER, TOYOTA_PRIUS_PLUS, 3]
+          - [TOYOTA_LAND_CRUISER, TOYOTA_PROACE_VERSO, 3]
+          - [TOYOTA_LAND_CRUISER, TOYOTA_PROACE_CITY_VERSO, 7]
+          - [TOYOTA_PRIUS_PLUS, TOYOTA_PROACE_VERSO, 3]
+          - [TOYOTA_PRIUS_PLUS, TOYOTA_PROACE_CITY_VERSO, 7]
+          - [TOYOTA_PROACE_VERSO, TOYOTA_PROACE_CITY_VERSO, 7]              
+      children: *alternatives
+    NUMBER_OF_SEATS:
+      preferences: 
+        pairwiseFunction:
+          function(a1, a2) min(5, max(1/5, a1$NUMBER_OF_SEATS/a2$NUMBER_OF_SEATS))
+      children: *alternatives
+    DIESEL:
+      preferences: 
+        pairwise:
+          - [DACIA_LODGY, FIAT_500L_WAGON, 5]
+          - [DACIA_LODGY, OPEL_COMBO_LIFE, 5]
+          - [DACIA_LODGY, RENAULT_ESPACE, 5]
+          - [DACIA_LODGY, RENAULT_GRAND_SCENIC, 1/3]
+          - [DACIA_LODGY, RENAULT_TRAFIC_COMBI, 5]
+          - [DACIA_LODGY, SKODA_KODIAQ, 1/3]
+          - [DACIA_LODGY, TOYOTA_LAND_CRUISER, 5]
+          - [DACIA_LODGY, TOYOTA_PRIUS_PLUS, 5]
+          - [DACIA_LODGY, TOYOTA_PROACE_VERSO, 5]
+          - [DACIA_LODGY, TOYOTA_PROACE_CITY_VERSO, 1/3]
+          - [FIAT_500L_WAGON, OPEL_COMBO_LIFE, 3]
+          - [FIAT_500L_WAGON, RENAULT_ESPACE, 3]
+          - [FIAT_500L_WAGON, RENAULT_GRAND_SCENIC, 1/5]
+          - [FIAT_500L_WAGON, RENAULT_TRAFIC_COMBI, 3]
+          - [FIAT_500L_WAGON, SKODA_KODIAQ, 1/5]
+          - [FIAT_500L_WAGON, TOYOTA_LAND_CRUISER, 3]
+          - [FIAT_500L_WAGON, TOYOTA_PRIUS_PLUS, 3]
+          - [FIAT_500L_WAGON, TOYOTA_PROACE_VERSO, 3]
+          - [FIAT_500L_WAGON, TOYOTA_PROACE_CITY_VERSO, 1/5]
+          - [OPEL_COMBO_LIFE, RENAULT_ESPACE, 3]
+          - [OPEL_COMBO_LIFE, RENAULT_GRAND_SCENIC, 1/5]
+          - [OPEL_COMBO_LIFE, RENAULT_TRAFIC_COMBI, 3]
+          - [OPEL_COMBO_LIFE, SKODA_KODIAQ, 1/5]
+          - [OPEL_COMBO_LIFE, TOYOTA_LAND_CRUISER, 3]
+          - [OPEL_COMBO_LIFE, TOYOTA_PRIUS_PLUS, 3]
+          - [OPEL_COMBO_LIFE, TOYOTA_PROACE_VERSO, 3]
+          - [OPEL_COMBO_LIFE, TOYOTA_PROACE_CITY_VERSO, 1/5]
+          - [RENAULT_ESPACE, RENAULT_GRAND_SCENIC, 1/3]
+          - [RENAULT_ESPACE, RENAULT_TRAFIC_COMBI, 5]
+          - [RENAULT_ESPACE, SKODA_KODIAQ, 1/3]
+          - [RENAULT_ESPACE, TOYOTA_LAND_CRUISER, 5]
+          - [RENAULT_ESPACE, TOYOTA_PRIUS_PLUS, 5]
+          - [RENAULT_ESPACE, TOYOTA_PROACE_VERSO, 5]
+          - [RENAULT_ESPACE, TOYOTA_PROACE_CITY_VERSO, 1/3]  
+          - [RENAULT_GRAND_SCENIC, RENAULT_TRAFIC_COMBI, 3]
+          - [RENAULT_GRAND_SCENIC, SKODA_KODIAQ, 1/5]
+          - [RENAULT_GRAND_SCENIC, TOYOTA_LAND_CRUISER, 3]
+          - [RENAULT_GRAND_SCENIC, TOYOTA_PRIUS_PLUS, 3]
+          - [RENAULT_GRAND_SCENIC, TOYOTA_PROACE_VERSO, 3]
+          - [RENAULT_GRAND_SCENIC, TOYOTA_PROACE_CITY_VERSO, 1/5]
+          - [RENAULT_TRAFIC_COMBI, SKODA_KODIAQ, 1/3]
+          - [RENAULT_TRAFIC_COMBI, TOYOTA_LAND_CRUISER, 5]
+          - [RENAULT_TRAFIC_COMBI, TOYOTA_PRIUS_PLUS, 5]
+          - [RENAULT_TRAFIC_COMBI, TOYOTA_PROACE_VERSO, 5]
+          - [RENAULT_TRAFIC_COMBI, TOYOTA_PROACE_CITY_VERSO, 1/3] 
+          - [SKODA_KODIAQ, TOYOTA_LAND_CRUISER, 3]
+          - [SKODA_KODIAQ, TOYOTA_PRIUS_PLUS, 3]
+          - [SKODA_KODIAQ, TOYOTA_PROACE_VERSO, 3]
+          - [SKODA_KODIAQ, TOYOTA_PROACE_CITY_VERSO, 1/5]
+          - [TOYOTA_LAND_CRUISER, TOYOTA_PRIUS_PLUS, 5]
+          - [TOYOTA_LAND_CRUISER, TOYOTA_PROACE_VERSO, 5]
+          - [TOYOTA_LAND_CRUISER, TOYOTA_PROACE_CITY_VERSO, 1/3]
+          - [TOYOTA_PRIUS_PLUS, TOYOTA_PROACE_VERSO, 3]
+          - [TOYOTA_PRIUS_PLUS, TOYOTA_PROACE_CITY_VERSO, 1/5]
+          - [TOYOTA_PROACE_VERSO, TOYOTA_PROACE_CITY_VERSO, 1/3]              
+      children: *alternatives
+#
+# End of Goal Section
+#####################################
+ 
